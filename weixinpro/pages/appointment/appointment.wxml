@@ -1,0 +1,14 @@
+<view class="appointment">
+    <view class="list">
+        <view class="cell_line"></view>
+        <view wx:for="{{items}}" wx:key='item' data-item="{{item}}" bindtap="clickOntheCellitem">
+            <view class="list-item">
+                <view class="text">服务名称:{{item.info.title}}</view>
+                <view class="text">备注:{{item.note}}</view>
+                <view class="text">预留电话:{{item.tel}}</view>
+                <view class="text">预约时间:{{item.time}}</view>
+                <view class="cell_line"></view>
+            </view>
+        </view>
+    </view>
+</view>

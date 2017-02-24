@@ -1,0 +1,86 @@
+.home {
+  background: white;
+  overflow: hidden;
+}
+
+.storebtn {
+  position: absolute;
+  width: 140px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  left: 12px;
+  overflow: hidden;
+  top: 15px;
+  border-radius: 15px;
+}
+
+.btn-text {
+  position: absolute;
+  margin: 5px 5px 5px 5px;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  -webkit-box-orient: vertical;
+}
+.list {
+  background-color: white;
+  margin-top: 70px;
+}
+.list-item {
+  background-color: white;
+}
+
+.image {
+  width: 44px;
+  height: 44px;
+  top: 10px;
+  left: 15px;
+  position: relative;
+  display: flex;
+  border-radius: 30px;
+}
+
+.title {
+  position: relative;
+  color: #353535;
+  text-align: left;
+  left: 74px;
+  top: -33px;
+  font-size: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
+.subtitle {
+  position: relative;
+  text-align: left;
+  width: 60%;
+  color: #888;
+  top: -23px;
+  left: 74px;
+  font-size: 14px;
+  height: 16px;
+  line-height: 16px;
+  overflow: hidden;
+}
+.showUnserve{
+  margin: 20px;
+  color: gray;
+  font-size: 14px;
+  text-align: center;
+  height: 300px;
+  line-height: 150px;
+}
+.cell_line {
+  position: relative;
+  left: 20px;
+  height: 1px;
+  margin-top: -10px;
+  background-color: #dfdfdf;
+}

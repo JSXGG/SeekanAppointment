@@ -1,0 +1,63 @@
+.appointdetails {
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.input-content{
+  margin-top: 10px;  
+  background-color: #f2f2f2;
+}
+.input-title{
+    color: #888888;
+    position: relative;
+    height: 20px;
+    padding-left: 15px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.input-view{
+  font-size: 17px;
+  padding-top: 10px;
+  padding-left: 15px;
+  position: relative;
+  width: 100%;
+  height: 35px;
+  background-color: white;
+  border-top:0.5px solid #f2f2f2;
+  border-bottom:0.5px solid #f2f2f2;
+  overflow: hidden;
+}
+.textarea-view{
+  font-size: 17px;
+  padding-top: 10px;
+  padding-left: 15px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 10px;
+  background-color: white;
+  border-top:0.5px solid #f2f2f2;
+  border-bottom:0.5px solid #f2f2f2;
+  overflow: hidden;
+}
+.picker-title{
+  font-size: 17px;
+  padding-left: 15px;
+  position: relative;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: white;
+  border-top:0.5px solid #f2f2f2;
+  border-bottom:0.5px solid #f2f2f2;
+  overflow: hidden;
+}
+.button-content{
+  color: white;
+  margin-top: 40px;
+  width: 90%;
+  height: 44px;
+  margin-bottom: 40px;
+  background-color: #00aaff;
+}

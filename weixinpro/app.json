@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/me/me",
+    "pages/appointment/appointment",
+    "pages/storelist/storelist",
+    "pages/appointdetails/appointdetails",
+    "pages/myserve/myserve",
+    "pages/addserve/addserve",
+    "pages/servedetails/servedetails"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00aaff",
+    "navigationBarTitleText": "萧萧预约",
+    "backgroundColor": "#f2f2f2",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "source/main.png",
+        "selectedIconPath": "source/main_select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "source/me.png",
+        "selectedIconPath": "source/me_select.png",
+        "text": "我"
+      }
+    ]
+  }
+}

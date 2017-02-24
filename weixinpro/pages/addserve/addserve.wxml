@@ -1,0 +1,44 @@
+<view class="addserve">
+    <view class="input-content">
+        <view class="input-title">服务名称</view>
+        <view class="input-view">
+            <input value="{{title}}" bindinput="bindTitleChange" placeholder="请输入您的服务名称"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">服务内容</view>
+        <view class="input-view">
+            <textarea value="{{content}}" bindinput="bindContentChange"  auto-height placeholder="请输入您的服务内容"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">开始日期</view>
+        <picker mode="date" value="{{bdate}}" start="{{start1}}" end="{{end1}}" bindchange="bindBdateChange">
+            <view class="picker-title">当前选择: {{bdate}}
+            </view>
+        </picker>
+    </view>
+    <view class="input-content">
+        <view class="input-title">开始时间</view>
+        <picker mode="time" value="{{btime}}" bindchange="bindBtimeChange">
+            <view class="picker-title">当前选择: {{btime}}
+            </view>
+        </picker>
+    </view>
+    <view class="input-content">
+        <view class="input-title">结束日期</view>
+        <picker mode="date" value="{{edate}}" start="{{start2}}" end="{{end2}}" bindchange="bindEdateChange">
+            <view class="picker-title">当前选择: {{edate}}
+            </view>
+        </picker>
+    </view>
+    <view class="input-content">
+        <view class="input-title">结束时间</view>
+        <picker mode="time" value="{{etime}}" bindchange="bindEtimeChange">
+            <view class="picker-title">当前选择: {{etime}}
+            </view>
+        </picker>
+    </view>
+    <button wx:if="{{options.serveid.length>0}}" class="button-del" bindtap="clickonthedelrecord">删除</button>
+    <button class="button-content" bindtap="clickontheEnter">保存</button>
+</view>

@@ -1,0 +1,19 @@
+<view class="home">
+  <navigator class="storebtn" url="../storelist/storelist">
+    <view class="btn-text">
+      {{currentStoreinfo.name}}
+    </view>
+  </navigator>
+  <view class="list">
+    <view class="cell_line"></view>
+    <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}" bindtap="clickOntheCellitem">
+      <view class="list-item">
+        <image class="image" src="{{item.icon}}"></image>
+        <view class="title">{{item.title}}</view>
+        <view class="subtitle">{{item.content}}</view>
+        <view class="cell_line"></view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{showUnserve}}" class="showUnserve"> {{currentStoreinfo.name}}暂未提供服务</view>
+</view>

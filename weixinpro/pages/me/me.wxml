@@ -1,0 +1,18 @@
+<view class="me">
+ <view class="header">
+      <image class="image" src="{{userInfo.avatarUrl}}"></image>
+      <view class="title">{{userInfo.nickName}}</view>
+      <view class="subtitle">{{userInfo.city}}</view>
+ </view>
+ <navigator class="widget" bindtap="clickOntheitem" url="">
+      <view class="lefttitle">我的预约</view>
+      <image class="widget__arrow" src="/source/arrowright.png"></image>
+      <view class="widget__line"></view>
+ </navigator>
+ <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" bindtap="clickOntheserve" url="">
+      <view class="lefttitle">我的服务</view>
+      <image class="widget__arrow" src="/source/arrowright.png"></image>
+      <view class="widget__line"></view>
+ </navigator>
+</view>
+<include src="../template/footer.wxml"/>

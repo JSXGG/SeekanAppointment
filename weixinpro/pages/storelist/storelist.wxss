@@ -1,0 +1,44 @@
+.storelist{
+    background-color: #dddddd;
+    min-height: 100%;
+    overflow: hidden;
+}
+.cell-item{
+    background-color: white;
+}
+.image{
+    width: 44px;
+    height: 44px;
+    top:10px;
+    left: 15px;
+    position:relative;
+    display: flex;
+    border-radius: 30px;
+}
+.title{
+    position:relative;
+    color: #353535;
+    text-align: left;
+    left: 74px;
+    top:-33px;
+    font-size: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+.subtitle{
+    position:relative;
+    text-align: left;
+    color: #888888;
+    top:-23px;
+    left: 74px;
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+}
+.cell_line{
+    position: relative;
+    left: 20px;
+    height:1px;
+    margin-top: -10px;
+    background-color: #DFDFDF;
+}

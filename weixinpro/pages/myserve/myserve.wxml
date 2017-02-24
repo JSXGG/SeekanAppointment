@@ -1,0 +1,33 @@
+<view class="myserve">
+  <navigator class="widget" bindtap="clickOntheheaderitem">
+    <view wx:if="{{showview==true}}" class="header">
+      <view class="cell-item">
+        <image class="image" src="{{info.icon}}"></image>
+        <view class="title">{{info.name}}</view>
+        <view class="subtitle">{{info.info}}</view>
+        <image class="widget__arrow" src="/source/arrowright.png"></image>
+        <view class="cell_header-line"></view>
+      </view>
+    </view>
+  </navigator>
+  <view class="content">
+    <view wx:for="{{items}}" wx:key='item'>
+      <navigator class="widget" data-item="{{item}}" bindtap="clickOntheCellitem">
+        <view class="cell-item">
+          <image class="image" src="{{item.icon}}"></image>
+          <view class="title">{{item.title}}</view>
+          <view class="subtitle">{{item.content}}</view>
+          <image class="widget__arrow" src="/source/arrowright.png"></image>
+          <view class="cell_line"></view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <button wx:if="{{showview==true}}" class="addbtn" type="default" bindtap="addserve" hover-class="other-button-hover"> 添加 </button>
+</view>
+
+<!--<navigator class="widget" bindtap="clickOntheitem">
+      <view class="lefttitle">我的预约</view>
+      <image class="widget__arrow" src="/source/arrowright.png"></image>
+      <view class="widget__line"></view>
+ </navigator>-->

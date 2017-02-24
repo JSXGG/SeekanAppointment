@@ -1,0 +1,29 @@
+.appointment{
+    position: absolute;
+    background-color: #f2f2f2;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.list {
+    margin-top: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+
+}
+.list-item {
+    background-color: white;
+}
+.text {
+    margin: 10px;
+    color: #353535;
+    text-align: left;
+    left: 74px;
+    font-size: 16px;
+}
+.cell_line {
+    left: 20px;
+    height: 1px;
+    background-color: #dfdfdf;
+}

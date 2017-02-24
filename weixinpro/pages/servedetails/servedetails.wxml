@@ -1,0 +1,17 @@
+<view wx:if="{{compinfo.name.length>0}}"class='servedetails'>
+    <view  class="compinfo">
+        <image class="image" src="{{compinfo.icon}}"></image>
+        <view class="name">{{compinfo.name}}</view>
+        <view class="info">公司简介：{{compinfo.info}}</view>
+        <view class="address">公司地址：{{compinfo.address}}</view>
+    </view>
+    <view class="viewcontent">
+        <view class="title">项目名称：{{info.title}}</view>
+        <view class="content">项目简介：{{info.content}}</view>
+        <view class="content">开始时间：{{info.btime}}</view>
+        <view class="content">结束时间：{{info.etime}}</view>
+    </view>
+    <button class="button-content" bindtap="clickontheEnter">
+        预约
+    </button>
+</view>

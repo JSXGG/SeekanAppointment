@@ -1,0 +1,8 @@
+<view class="storelist">
+ <view  class="cell-item" wx:for="{{items}}" wx:key='item' bindtap="tapItem" data-item="{{item}}">
+     <image class="image" src="{{item.icon}}"></image>
+      <view class="title">{{item.name}}</view>
+      <view class="subtitle">{{item.info}}</view>
+      <view class="cell_line"></view>
+ </view>
+ </view>
