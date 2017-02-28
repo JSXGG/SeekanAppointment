@@ -26,12 +26,17 @@ Page({
     clickOntheitem: function () {
         //点击列表事件。
         wx.navigateTo({
-            url: '../appointment/appointment'
+            url: '../myappointment/myappointment'
         })
     },
     clickOntheserve: function () {
         wx.navigateTo({
             url: '../myserve/myserve'
+        })
+    },
+    clickOntheOrder: function () {
+        wx.navigateTo({
+            url: '../myorderview/myorderview'
         })
     }
 })

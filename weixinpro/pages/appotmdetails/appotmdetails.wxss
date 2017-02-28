@@ -1,0 +1,75 @@
+.servedetails {
+  position: absolute;
+  background: #f2f2f2;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.compinfo{
+  padding: 5px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+}
+.compinfo .image {
+  width: 44px;
+  height: 44px;
+  top: 5px;
+  left: 15px;
+  position: relative;
+  display: flex;
+  border-radius: 30px;
+}
+.compinfo .name{
+  text-align: left;
+  margin-top: -40px;
+  height: 44px;
+  line-height: 44px;
+  margin-left: 75px;
+  max-width: 70%;
+  font-size: 18px;
+}
+.compinfo .info{
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 15px;
+  color: gray;
+  font-size: 14px;
+  overflow: hidden;
+}
+.compinfo .address{
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  color: gray;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.viewcontent{
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+}
+.viewcontent .title{
+  text-align: left;
+  margin: 10px;
+  max-width: 100%;
+  font-size: 18px;
+}
+.viewcontent .content{
+  margin: 10px;
+  color: gray;
+  font-size: 14px;
+}
+.button-content{
+  color: white;
+  margin-top: 20px;
+  width: 90%;
+  height: 44px;
+  margin-bottom: 40px;
+  background-color: #03a9f4;
+}
+

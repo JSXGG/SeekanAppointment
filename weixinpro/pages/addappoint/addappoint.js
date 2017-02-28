@@ -4,7 +4,7 @@ Page({
         phone: '',
         remarks: '',
         date: '',
-        time: '6:00',
+        time: '06:00',
         options: {}
     },
     onLoad: function (options) {
@@ -76,6 +76,7 @@ Page({
             var time = this.transfTime(this.data.date, this.data.time);
             var data = {
                 serveid: this.data.options.serveid,
+                firstname:this.data.firstname,
                 uid: userInfo.id,
                 time: time,
                 note: this.data.remarks,
@@ -108,10 +109,9 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
-                console.log(res.data);
                 if (res.data.result == 1){
-                    that.toastSuccessWithText('预约成功');
-                    setTimeout(()=> {
+                    setTimeout(()=>{
+                        that.toastSuccessWithText('预约成功');
                         wx.navigateBack({
                             delta: 2 // 回退前 delta(默认为1) 页面
                         });
@@ -123,7 +123,6 @@ Page({
             }
         });
     },
-
     toastSuccessWithText: function (text) {
         wx.showToast({
             title: text,
@@ -132,9 +131,11 @@ Page({
         })
     },
     toastErrorWithText: function (text) {
-        wx.showToast({
-            title: text,
-            duration: 1000
+        wx.showModal({
+            title: '提示',
+            content: text,
+            showCancel:false,
+            confirmText:'知道了'
         })
     },
     showLoadingWith: function (text) {

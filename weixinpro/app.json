@@ -2,18 +2,20 @@
   "pages": [
     "pages/home/home",
     "pages/me/me",
-    "pages/appointment/appointment",
+    "pages/myappointment/myappointment",
     "pages/storelist/storelist",
-    "pages/appointdetails/appointdetails",
+    "pages/addappoint/addappoint",
+    "pages/appotmdetails/appotmdetails",
     "pages/myserve/myserve",
     "pages/addserve/addserve",
-    "pages/servedetails/servedetails"
+    "pages/servedetails/servedetails",
+    "pages/myorderview/myorderview"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00aaff",
     "navigationBarTitleText": "萧萧预约",
-    "backgroundColor": "#f2f2f2",
+    "backgroundColor": "#00aaff",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

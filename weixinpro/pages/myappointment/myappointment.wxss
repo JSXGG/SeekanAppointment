@@ -1,0 +1,61 @@
+.appointment{
+    position: absolute;
+    background-color: #f2f2f2;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.list {
+    margin-top: 5px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.list-item {
+    background-color: white;
+}
+.list-item .name {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 30px;
+    line-height: 30px;
+    color: #888888;
+    text-align: left;
+    font-size: 16px;
+}
+.list-item .time {
+    margin: 5px 10px 10px 10px;
+    color: #353535;
+    text-align: left;
+    left: 74px;
+    color: #888888;
+    font-size: 14px;
+}
+.list-item .widget__arrow{
+    position: absolute;
+    margin-top: -40px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    margin-left: 90%;
+}
+.list-item .cell_line {
+    left: 20px;
+    height: 1px;
+    background-color: #dfdfdf;
+}
+.showUnappment {
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+    height: 300px;
+    line-height: 150px;
+}
+.state{
+    position: absolute;
+    color: #03a9f4;
+    font-size: 14px;
+    margin-top: -38px;
+    margin-left: 78%;
+}

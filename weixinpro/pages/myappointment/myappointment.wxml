@@ -1,0 +1,14 @@
+<view class="appointment">
+    <view class="list">
+        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}" bindtap="clickOntheOrder">
+            <view class="list-item">
+                <view class="name">服务名称：{{item.info.title}}</view>
+                <view class="time">订单日期：{{item.time}}</view>
+                <image class="widget__arrow" src="/source/arrowright.png"></image>
+                <div class="state">{{item.state}}</div>
+                <view class="cell_line"></view>
+            </view>
+        </navigator>
+    </view>
+    <view wx:if="{{showUnappment}}" class="showUnappment">您当前没有预约，请到首页预约您的服务</view>
+</view>

@@ -1,0 +1,23 @@
+<view wx:if="{{binfo.name.length>0}}"class='servedetails'>
+    <view  class="compinfo">
+        <image class="image" src="{{binfo.icon}}"></image>
+        <view class="name">{{binfo.name}}</view>
+        <view class="info">公司简介：{{binfo.info}}</view>
+        <view class="address">公司地址：{{binfo.address}}</view>
+    </view>
+    <view class="viewcontent">
+        <view class="title">项目名称：{{sinfo.title}}</view>
+        <view class="content">项目简介：{{sinfo.content}}</view>
+        <view class="content">开始时间：{{sinfo.btime}}</view>
+        <view class="content">结束时间：{{sinfo.etime}}</view>
+    </view>
+    <view class="viewcontent">
+        <view class="content">贵姓：{{info.firstname}}</view>
+        <view class="content">电话：{{info.tel}}</view>
+        <view class="content">预约时间：{{info.time}}</view>
+        <view class="content">备注：{{info.note}}</view>
+    </view>
+    <button class="button-content" bindtap="clickonthecancle">
+        取消预约
+    </button>
+</view>

@@ -1,0 +1,14 @@
+<view class="myserve">
+    <view class="list-item">
+        <view wx:for="{{items}}" wx:key='item'>
+            <navigator class="widget" data-item="{{item}}" bindtap="clickOntheCellitem">
+                <view class="cell-item">
+                    <view class="name">服务名称：{{item.info.title}}</view>
+                    <view class="time">订单日期：{{item.time}}</view>
+                    <image class="widget__arrow" src="/source/arrowright.png"></image>
+                    <view class="cell_line"></view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

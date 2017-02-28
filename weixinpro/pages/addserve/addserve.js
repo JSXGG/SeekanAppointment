@@ -10,15 +10,15 @@ Page({
         end1: '2017-03-10',
         start2: '2017-02-10',
         end2: '2017-03-10',
-        options:{}
+        options: {}
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
         this.setData({
-            options:options
+            options: options
         });
         console.log(options);
-        if(options.serveid){
+        if (options.serveid) {
             this.getserveinfo(options.serveid);
         }
     },
@@ -34,19 +34,18 @@ Page({
             data: {
                 'serveid': serveid
             },
-            success: function (res){
-                if (res.data.data){
+            success: function (res) {
+                if (res.data.data) {
                     that.reloadserveinfo(res.data.data);
                 }
             }
         });
     },
-
-    reloadserveinfo:function(data){
-        var btime = new Date(parseInt(data.btime)*1000);
-        var etime = new Date(parseInt(data.etime)*1000);
+    reloadserveinfo: function (data) {
+        let btime = new Date(parseInt(data.btime) * 1000);
+        let etime = new Date(parseInt(data.etime) * 1000);
         this.setData({
-            title:data.title,
+            title: data.title,
             content: data.content,
             bdate: btime.pattern('yyyy-MM-dd'),
             btime: btime.pattern('HH:mm'),
@@ -122,7 +121,7 @@ Page({
             this.toastErrorWithText('请输入服务结束时间');
         }
         else {
-            this.showLoadingWith('正在添加');
+
             var btime = this.transfTime(this.data.bdate, this.data.btime);
             var etime = this.transfTime(this.data.edate, this.data.etime);
             var data = {
@@ -133,13 +132,14 @@ Page({
                 'title': this.data.title,
                 'content': this.data.content
             };
-            if (this.data.options.serveid){
-                data['serveid']=this.data.options.serveid;
+
+            if (this.data.options.serveid) {
+                data['serveid'] = this.data.options.serveid;
             }
             this.addordercompany(data);
         }
     },
-    clickonthedelrecord:function (){
+    clickonthedelrecord: function () {
         var that = this;
         wx.showModal({
             title: '提示',
@@ -154,10 +154,7 @@ Page({
     //删除记录。
     delrecordWithserveid: function (id) {
         var that = this;
-        wx.showToast({
-            title: '正在删除',
-            icon: 'loading'
-        });
+        that.showLoadingWith('正在删除');
         var data = {
             serveid: id,
             businessid: this.data.options.businessid,
@@ -187,7 +184,7 @@ Page({
             }
         })
     },
-    // 获取公司信息。
+    // 添加服务。
     addordercompany: function (data) {
         var that = this;
         this.showLoadingWith('保存中...');
@@ -203,11 +200,16 @@ Page({
                     that.addSuccess();
                 }
                 else {
-                    that.toastSuccessWithText(res.data.error);
+                    wx.hideToast();
+                    wx.showModal({
+                        title: '提示',
+                        showCancel:false,
+                        confirmText:"知道了",
+                        content: res.data.error,
+                    });
                 }
-            }
-        })
-    },
+            }});
+        },
     //添加成功
     addSuccess: function () {
         setTimeout(() => {
@@ -225,14 +227,14 @@ Page({
     //日期转时间戳。
     transfTime: function (date, time) {
         var dates = date.split('-');
-        var stringTime = dates[0] + '/' 
-        + dates[1] 
-        + '/' 
-        + dates[2] 
-        + ' ' + time + ':00';
+        var stringTime = dates[0] + '/'
+            + dates[1]
+            + '/'
+            + dates[2]
+            + ' ' + time + ':00';
         var timestamp = Date.parse(new Date(stringTime));
         timestamp = timestamp / 1000;
-        return timestamp;
+        return String(timestamp);
     },
     toastSuccessWithText: function (text) {
         wx.showToast({
@@ -249,8 +251,9 @@ Page({
     },
     showLoadingWith: function (text) {
         wx.showToast({
+            mask:true,
             title: text,
-            icon: 'loading'
+            icon: 'loading',
         })
     }
 })

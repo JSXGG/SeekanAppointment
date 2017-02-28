@@ -67,12 +67,11 @@ Page({
         })
     },
     clickontheEnter(){
-        var URL = '../appointdetails/appointdetails?serveid='+this.data.info.serveid+'&businessid='+this.data.info.businessid;
+        var URL = '../addappoint/addappoint?serveid='+this.data.info.serveid+'&businessid='+this.data.info.businessid;
         wx.navigateTo({
             url: URL
         })
-    }
-    ,
+    },
     onUnload: function () {
         // 生命周期函数--监听页面卸载    
     },
