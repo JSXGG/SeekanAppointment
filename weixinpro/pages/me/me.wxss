@@ -17,6 +17,7 @@
     left: 15px;
     position:absolute;
     display: flex;
+    border-radius: 30px;
 }
 .title{
     position:absolute;

@@ -36,43 +36,55 @@ Page({
             data: {
                 uid: uid
             },
-            success: function (res){
+            success: function (res) {
                 var items = res.data.data;
                 if (items) {
-                   that.setData({
-                       items:items
-                   });
-                }
-            }
-        })
-    },
-    //获取公司信息
-    getCompanyinfo(uid) {
-        var that = this;
-        wx.request({
-            url: 'https://xggserve.com/xgg/getcompanyinfo',
-            method: 'POST',
-            header: {
-                'content-type': 'application/json'
-            },
-            data: {
-                adminid: uid
-            },
-            success: function (res) {
-                var businessid = res.data.data.businessid;
-                if (businessid) {
-                    that.getServelist(uid, businessid)
+                    that.setData({
+                        items: items
+                    });
                 }
             }
         })
     },
     //点击进入订单详情。
     clickOntheCellitem: function (e) {
+        var that = this;
         var item = e.currentTarget.dataset.item;
-        //点击列表事件。
-        var URL = '../addserve/addserve?uid=' + this.data.info.adminid + '&businessid=' + this.data.info.businessid+'&serveid='+item.serveid;
-        wx.navigateTo({
-            url: URL
+        wx.showActionSheet({
+            itemList: ['接受预约', '拒绝预约'],
+            success: function (res) {
+                console.log(res.tapIndex)
+                if (res.tapIndex == 0) {
+                    // that.dealmyorder(item.serveid, true)
+                }
+                else {
+                    // that.dealmyorder(item.serveid, false)
+                }
+            }
+        })
+    },
+    dealmyorder(serveid, isaccept){
+        let ToasTitle = '';
+        wx.showToast({
+            title: '正在请求',
+            icon: 'loading',
+            duration: 10000
+        })
+        var that = this;
+        wx.request({
+            url: 'https://xggserve.com/xgg/dealmyorder',
+            method: 'POST',
+            header: {
+                'content-type': 'application/json'
+            },
+            data: {
+                serveid: serveid,
+                isaccept:isaccept
+            },
+            success: function (res){
+                wx.hideToast();
+                console.log();
+            }
         })
     },
     onShareAppMessage: function () {
