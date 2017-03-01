@@ -1,0 +1,37 @@
+<view class="mycompany">
+    <view class="list-item" bindtap="clickontheheader">
+        <view class="title">公司商标</view>
+        <image class="face" src="{{info.icon}}"></image>
+        <image class="widget__arrow" src="/source/arrowright.png"></image>
+        <view class="widget__line"></view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">公司名称</view>
+        <view class="input-view">
+            <input value="{{info.name}}" bindinput="bindNameChange" placeholder="请输入您的公司名称"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">公司简介</view>
+        <view class="input-view">
+            <textarea value="{{info.info}}" bindinput="bindInfoChange" auto-height placeholder="请输入您的公司简介"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">公司地址</view>
+        <view class="input-view">
+            <input value="{{info.address}}" bindinput="bindAddressChange" placeholder="请输入您的公司地址"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">公司类型</view>
+        <view class="input-view">
+            <picker bindchange="bindTypeChange" value="{{info.type}}" range="{{array}}">
+                <view class="picker">
+                    当前选择：{{array[info.type]}}
+                </view>
+            </picker>
+        </view>
+    </view>
+    <button class="button-content" bindtap="clickontheEnter">保存</button>
+</view>

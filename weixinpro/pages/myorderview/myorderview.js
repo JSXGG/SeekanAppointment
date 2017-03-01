@@ -1,6 +1,7 @@
 Page({
     data: {
-        items: []
+        items: [],
+        showUnappment: false
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
@@ -26,6 +27,11 @@ Page({
         // 页面上拉触底事件的处理函数
     },
     getmyorder(uid){
+        wx.showToast({
+            title: '正在请求',
+            icon: 'loading',
+            duration: 10000
+        })
         var that = this;
         wx.request({
             url: 'https://xggserve.com/xgg/getmyorder',
@@ -38,7 +44,32 @@ Page({
             },
             success: function (res) {
                 var items = res.data.data;
+                wx.hideToast();
+                if (items.length == 0) {
+                    that.setData({
+                        showUnappment: true
+                    });
+                }
+                else {
+                    that.setData({
+                        showUnappment: false
+                    });
+                }
                 if (items) {
+                    for (let i = 0; i < items.length; i++) {
+                        let Obj = items[i];
+                        Obj.time = new Date(parseInt(Obj.time) * 1000);
+                        Obj.time = Obj.time.pattern('yyyy-MM-dd HH:mm')
+                        if (Obj.state == 0) {
+                            Obj.state = '未处理'
+                        }
+                        else if (Obj.state == 1) {
+                            Obj.state = '已接受'
+                        }
+                        else if (Obj.state == -1) {
+                            Obj.state = '已拒绝'
+                        }
+                    }
                     that.setData({
                         items: items
                     });
@@ -53,18 +84,17 @@ Page({
         wx.showActionSheet({
             itemList: ['接受预约', '拒绝预约'],
             success: function (res) {
-                console.log(res.tapIndex)
                 if (res.tapIndex == 0) {
-                    // that.dealmyorder(item.serveid, true)
+                    that.dealmyorder(item.id, 1)
                 }
-                else {
-                    // that.dealmyorder(item.serveid, false)
+                else if(res.tapIndex == 1){
+                    that.dealmyorder(item.id, -1)
                 }
             }
         })
     },
-    dealmyorder(serveid, isaccept){
-        let ToasTitle = '';
+    dealmyorder(id, state){
+        var userInfo = getApp().globalData.userInfo;
         wx.showToast({
             title: '正在请求',
             icon: 'loading',
@@ -78,12 +108,21 @@ Page({
                 'content-type': 'application/json'
             },
             data: {
-                serveid: serveid,
-                isaccept:isaccept
+                uid: userInfo.id,
+                id: id,
+                state: state
             },
-            success: function (res){
+            success: function (res) {
                 wx.hideToast();
-                console.log();
+                if (res.data.result == 1){
+                    that.getmyorder(userInfo.id);
+                }
+                else{
+                    wx.showModal({
+                        title: '提示',
+                        content: res.data.error
+                    })
+                }
             }
         })
     },

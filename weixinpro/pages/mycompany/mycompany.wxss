@@ -1,0 +1,96 @@
+.mycompany {
+    position: absolute;
+    background: #f2f2f2;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.list-item {
+    background-color: white;
+}
+.list-item .title {
+    margin-top:5px;
+    margin-left:15px;
+    width:100px;
+    height:60px;
+    line-height:60px;
+    font-size:17px;
+}
+.list-item .face {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 45px;
+    border-radius: 22px;
+    margin-top: -52px;
+}
+.list-item .widget__arrow {
+    position: absolute;
+    margin-top: -40px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+}
+
+.widget__line {
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: #DFDFDF;
+}
+.input-content{
+    margin-top: 10px;
+    background-color: #f2f2f2;
+}
+.input-title{
+    color: #888888;
+    position: relative;
+    height: 20px;
+    padding-left: 15px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.input-view{
+    font-size: 17px;
+    padding-top: 10px;
+    padding-left: 15px;
+    position: relative;
+    width: 100%;
+    min-height: 35px;
+    background-color: white;
+    border-top:0.5px solid #f2f2f2;
+    border-bottom:0.5px solid #f2f2f2;
+    overflow: hidden;
+}
+.textarea-view{
+    font-size: 17px;
+    padding-top: 10px;
+    padding-left: 15px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: white;
+    border-top:0.5px solid #f2f2f2;
+    border-bottom:0.5px solid #f2f2f2;
+    overflow: hidden;
+}
+.picker-title{
+    font-size: 17px;
+    padding-left: 15px;
+    position: relative;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: white;
+    border-top:0.5px solid #f2f2f2;
+    border-bottom:0.5px solid #f2f2f2;
+    overflow: hidden;
+}
+.button-content{
+    color: white;
+    margin-top: 20px;
+    width: 90%;
+    height: 44px;
+    margin-bottom: 40px;
+    background-color: #00aaff;
+}

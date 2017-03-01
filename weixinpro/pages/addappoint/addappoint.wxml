@@ -19,7 +19,7 @@
   </view>
   <view class="input-content">
     <view class="input-title">预约日期</view>
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" start="{{options.startdate}}" end="{{options.enddate}}" bindchange="bindDateChange">
       <view class="picker-title">当前选择: {{date}}
       </view>
     </picker>

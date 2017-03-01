@@ -56,6 +56,8 @@
     position: absolute;
     color: #03a9f4;
     font-size: 14px;
-    margin-top: -38px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -42px;
     margin-left: 78%;
 }

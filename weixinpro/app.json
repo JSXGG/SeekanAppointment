@@ -9,7 +9,8 @@
     "pages/myserve/myserve",
     "pages/addserve/addserve",
     "pages/servedetails/servedetails",
-    "pages/myorderview/myorderview"
+    "pages/myorderview/myorderview",
+    "pages/mycompany/mycompany"
   ],
   "window": {
     "backgroundTextStyle": "light",

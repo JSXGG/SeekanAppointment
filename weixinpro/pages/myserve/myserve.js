@@ -101,7 +101,10 @@ Page({
     },
     //点击进入公司详细信息。
     clickOntheheaderitem: function () {
-        //  var item = e.target.dataset.item;
+        var URL = '../mycompany/mycompany';
+        wx.navigateTo({
+            url: URL
+        })
     },
     //点击进入服务详情。
     clickOntheCellitem: function (e) {

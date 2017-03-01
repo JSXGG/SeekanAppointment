@@ -67,7 +67,11 @@ Page({
         })
     },
     clickontheEnter(){
-        var URL = '../addappoint/addappoint?serveid='+this.data.info.serveid+'&businessid='+this.data.info.businessid;
+        var URL = '../addappoint/addappoint?serveid='
+            +this.data.info.serveid
+            +'&businessid='+this.data.info.businessid
+            +'&btime='+this.data.info.btime
+            +'&etime='+this.data.info.etime;
         wx.navigateTo({
             url: URL
         })

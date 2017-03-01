@@ -8,6 +8,21 @@ Page({
         options: {}
     },
     onLoad: function (options) {
+        console.log(options);
+        let btime = options.btime;
+        let etime = options.etime;
+        let btimes = btime.split(' ');
+        let etimes = etime.split(' ');
+        //开始日期和时间
+        if (btimes.length == 2){
+            options.startdate = btimes[0];
+            options.starttime = btimes[1];
+        }
+        //结束日期跟时间。
+        if (etimes.length == 2){
+            options.enddate = etimes[0];
+            options.endtime = etimes[1];
+        }
         // 生命周期函数--监听页面加载
         this.setData({
             options: options

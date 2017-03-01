@@ -7,10 +7,12 @@
                     <view class="itemtext">客户姓氏：{{item.firstname}}</view>
                     <view class="itemtext">客户电话：{{item.tel}}</view>
                     <view class="itemtext">客户备注：{{item.note}}</view>
-                    <view class="itemtext">预约时间：{{item.time}}</view>
+                    <view class="itemtime">预约时间：{{item.time}}</view>
+                    <view class="itemstate">订单状态：{{item.state}}</view>
                     <view class="cell_line"></view>
                 </view>
             </navigator>
         </view>
     </view>
+    <view wx:if="{{showUnappment}}" class="showUnappment">当前没有用户预约您的服务</view>
 </view>
