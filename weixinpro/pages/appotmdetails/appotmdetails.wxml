@@ -17,7 +17,6 @@
         <view class="content">预约时间：{{info.time}}</view>
         <view class="content">备注：{{info.note}}</view>
     </view>
-    <button class="button-content" bindtap="clickonthecancle">
-        取消预约
-    </button>
+    <button class="button-content"   bindtap="callphpne">拨打电话</button>
+    <button class="button-content"  style="background-color: #ff4343" bindtap="clickonthecancle">取消预约</button>
 </view>

@@ -6,6 +6,7 @@ Page({
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
+
         this.getmyamdetails(options.id);
     },
     onReady: function () {
@@ -95,6 +96,12 @@ Page({
                 }
             }
         });
+    },
+    //拨打电话。
+    callphpne(){
+        wx.makePhoneCall({
+            phoneNumber: this.data.binfo.tel //仅为示例，并非真实的电话号码
+        })
     },
     onUnload: function () {
         // 生命周期函数--监听页面卸载    

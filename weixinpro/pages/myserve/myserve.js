@@ -99,22 +99,6 @@ Page({
     reloadItems: function () {
         this.getServelist(this.data.info.adminid, this.data.info.businessid)
     },
-    //点击进入公司详细信息。
-    clickOntheheaderitem: function () {
-        var URL = '../mycompany/mycompany';
-        wx.navigateTo({
-            url: URL
-        })
-    },
-    //点击进入服务详情。
-    clickOntheCellitem: function (e) {
-        var item = e.currentTarget.dataset.item;
-        //点击列表事件。
-        var URL = '../addserve/addserve?uid=' + this.data.info.adminid + '&businessid=' + this.data.info.businessid+'&serveid='+item.serveid;
-        wx.navigateTo({
-            url: URL
-        })
-    },
     onShareAppMessage: function () {
         // 用户点击右上角分享
         return {

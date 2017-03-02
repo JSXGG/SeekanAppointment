@@ -77,16 +77,6 @@ Page({
             }
         });
     },
-    clickOntheOrder:function (e) {
-        var item = e.currentTarget.dataset.item;
-        //点击列表事件。
-        var URL = '../appotmdetails/appotmdetails?id='+item.id;
-        wx.navigateTo({
-            url: URL
-        })
-        console.log(item);
-    },
-
     onShareAppMessage: function () {
         // 用户点击右上角分享
         return {

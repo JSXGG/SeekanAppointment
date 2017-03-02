@@ -2,7 +2,7 @@ Page({
     data: {
         items: [],
         currentStoreinfo: {},//当前商店信息。
-        showUnserve: false
+        showUnserve: false,
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
@@ -81,14 +81,6 @@ Page({
                 }
                 wx.hideToast()
             }
-        })
-    },
-    clickOntheCellitem(e){
-        var item = e.currentTarget.dataset.item;
-        //点击列表事件。
-        var URL = '../servedetails/servedetails?serveid=' + item.serveid + '&businessid=' + item.businessid;
-        wx.navigateTo({
-            url: URL
         })
     },
     onHide: function () {

@@ -22,21 +22,5 @@ Page({
     },
     onUnload: function () {
         // 页面关闭
-    },
-    clickOntheitem: function () {
-        //点击列表事件。
-        wx.navigateTo({
-            url: '../myappointment/myappointment'
-        })
-    },
-    clickOntheserve: function () {
-        wx.navigateTo({
-            url: '../myserve/myserve'
-        })
-    },
-    clickOntheOrder: function () {
-        wx.navigateTo({
-            url: '../myorderview/myorderview'
-        })
     }
 })

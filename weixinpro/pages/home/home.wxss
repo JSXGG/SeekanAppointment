@@ -61,14 +61,16 @@
 .subtitle {
     position: relative;
     text-align: left;
-    width: 60%;
     color: #888;
     top: -23px;
     left: 74px;
+    margin-right: 120px;
     font-size: 14px;
     height: 16px;
     line-height: 16px;
     overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 .showUnserve {

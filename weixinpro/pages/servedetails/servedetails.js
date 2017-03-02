@@ -3,7 +3,7 @@ Page({
         info: {},
         compinfo:{}
     },
-    onLoad: function (options) {
+    onLoad: function (options){
         // 生命周期函数--监听页面加载
         this.getserveinfo(options.serveid);
         this.getCompanyinfo(options.businessid);

@@ -1,6 +1,6 @@
 <view class="appointment">
     <view class="list">
-        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}" bindtap="clickOntheOrder">
+        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}"  url="../appotmdetails/appotmdetails?id={{item.id}}">
             <view class="list-item">
                 <view class="name">服务名称：{{item.info.title}}</view>
                 <view class="time">订单日期：{{item.time}}</view>

@@ -24,6 +24,12 @@
         </view>
     </view>
     <view class="input-content">
+        <view class="input-title">服务热线</view>
+        <view class="input-view">
+            <input value="{{info.tel}}" bindinput="bindTelChange" placeholder="请输入您的公司地址"/>
+        </view>
+    </view>
+    <view class="input-content">
         <view class="input-title">公司类型</view>
         <view class="input-view">
             <picker bindchange="bindTypeChange" value="{{info.type}}" range="{{array}}">

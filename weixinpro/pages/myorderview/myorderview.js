@@ -69,6 +69,9 @@ Page({
                         else if (Obj.state == -1) {
                             Obj.state = '已拒绝'
                         }
+                        else if (Obj.state == 2) {
+                            Obj.state = '服务已删除'
+                        }
                     }
                     that.setData({
                         items: items
@@ -81,14 +84,27 @@ Page({
     clickOntheCellitem: function (e) {
         var that = this;
         var item = e.currentTarget.dataset.item;
+
+        console.log(item);
         wx.showActionSheet({
-            itemList: ['接受预约', '拒绝预约'],
+            itemList: ['接受预约', '拒绝预约', '拨打客户电话'],
             success: function (res) {
                 if (res.tapIndex == 0) {
                     that.dealmyorder(item.id, 1)
                 }
-                else if(res.tapIndex == 1){
+                else if (res.tapIndex == 1) {
                     that.dealmyorder(item.id, -1)
+                }
+                else if (res.tapIndex == 2) {
+                    wx.makePhoneCall({
+                        phoneNumber: item.tel, //此号码并非真实电话号码，仅用于测试
+                        success:function(){
+                            console.log("拨打电话成功！")
+                        },
+                        fail:function(){
+                            console.log("拨打电话失败！")
+                        }
+                    })
                 }
             }
         })
@@ -114,10 +130,10 @@ Page({
             },
             success: function (res) {
                 wx.hideToast();
-                if (res.data.result == 1){
+                if (res.data.result == 1) {
                     that.getmyorder(userInfo.id);
                 }
-                else{
+                else {
                     wx.showModal({
                         title: '提示',
                         content: res.data.error

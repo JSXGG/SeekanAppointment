@@ -39,6 +39,12 @@ Page({
             info: this.data.info
         })
     },
+    bindTelChange:function (e) {
+        this.data.info.tel = e.detail.value
+        this.setData({
+            info: this.data.info
+        })
+    },
     bindTypeChange: function (e) {
         this.data.info.type = e.detail.value
         this.setData({
@@ -86,11 +92,15 @@ Page({
         else if (this.data.info.address.length == 0) {
             this.toastErrorWithText('请填写公司地址');
         }
+        else if (!getApp().SeekanAppTools.checkphone(this.data.info.tel)) {
+            this.toastErrorWithText('请填写正确的服务热线');
+        }
         else {
             let data = {
                 uid: this.data.info.adminid,
                 name: this.data.info.name,
                 address: this.data.info.address,
+                tel: this.data.info.tel,
                 type: this.data.info.type,
                 info: this.data.info.info,
                 businessid: this.data.info.businessid
@@ -114,7 +124,6 @@ Page({
             },
             data: data,
             success: function (res) {
-                console.log('res.data==============',res.data)
                 if (res.data.result == '1'){
                     if (that.data.tempFilePaths.length == 0) {
                         that.upDataFinish();

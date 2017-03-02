@@ -6,39 +6,53 @@
 .cell-item{
     background-color: white;
 }
-.image{
+.image {
+    position: relative;
     width: 44px;
     height: 44px;
-    top:10px;
+    top: 10px;
     left: 15px;
-    position:relative;
     display: flex;
     border-radius: 30px;
 }
-.title{
-    position:relative;
+
+.title {
+    position: relative;
     color: #353535;
     text-align: left;
     left: 74px;
-    top:-33px;
+    top: -33px;
     font-size: 16px;
     height: 16px;
     line-height: 16px;
 }
-.subtitle{
-    position:relative;
+
+.subtitle {
+    position: relative;
     text-align: left;
-    color: #888888;
-    top:-23px;
+    color: #888;
+    top: -23px;
     left: 74px;
+    margin-right: 120px;
     font-size: 14px;
     height: 16px;
     line-height: 16px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
-.cell_line{
+.cell_line {
     position: relative;
     left: 20px;
-    height:1px;
+    height: 1px;
     margin-top: -10px;
-    background-color: #DFDFDF;
+    background-color: #dfdfdf;
+}
+.widget__arrow{
+    position: absolute;
+    margin-left: 90%;
+    margin-top:-50px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
 }

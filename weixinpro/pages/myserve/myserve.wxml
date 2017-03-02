@@ -1,5 +1,5 @@
 <view class="myserve">
-  <navigator class="widget" bindtap="clickOntheheaderitem">
+  <navigator class="widget" url="../mycompany/mycompany">
     <view wx:if="{{showview==true}}" class="header">
       <view class="cell-item">
         <image class="image" src="{{info.icon}}"></image>
@@ -12,7 +12,7 @@
   </navigator>
   <view class="content">
     <view wx:for="{{items}}" wx:key='item'>
-      <navigator class="widget" data-item="{{item}}" bindtap="clickOntheCellitem">
+      <navigator class="widget" data-item="{{item}}" url="../addserve/addserve?uid={{info.adminid}}&businessid={{info.businessid}}&serveid={{item.serveid}}">
         <view class="cell-item">
           <image class="image" src="{{item.icon}}"></image>
           <view class="title">{{item.title}}</view>

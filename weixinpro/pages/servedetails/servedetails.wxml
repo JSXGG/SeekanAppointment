@@ -3,6 +3,7 @@
         <image class="image" src="{{compinfo.icon}}"></image>
         <view class="name">{{compinfo.name}}</view>
         <view class="info">公司简介：{{compinfo.info}}</view>
+        <view class="address">服务热线：{{compinfo.tel}}</view>
         <view class="address">公司地址：{{compinfo.address}}</view>
     </view>
     <view class="viewcontent">
