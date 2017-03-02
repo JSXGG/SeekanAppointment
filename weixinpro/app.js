@@ -73,6 +73,7 @@ App({
                 }
             },
             fail: function (error) {
+                console.log('setamlogin===',error);
                 wx.hideToast();
                 if (cb) {
                     cb({error: error});

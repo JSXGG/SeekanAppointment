@@ -3,11 +3,9 @@
         <image class="btnimage" src="/source/switch.png"></image>
         <view class="name">{{currentStoreinfo.name}}</view>
     </navigator>
-
-
     <view class="list">
-        <view class="cell_line"></view>
-        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}" url="../servedetails/servedetails?serveid={{item.serveid}}&businessid={{item.businessid}}">
+        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}"
+                   url="../servedetails/servedetails?serveid={{item.serveid}}&businessid={{item.businessid}}">
             <view class="list-item">
                 <image class="image" src="{{item.icon}}"></image>
                 <view class="title">{{item.title}}</view>

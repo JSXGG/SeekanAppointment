@@ -1,6 +1,9 @@
 .home {
-    overflow: hidden;
+    position: absolute;
     background-color: #00aaff;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
 }
 
 .storebtn {
@@ -29,12 +32,16 @@
     -webkit-box-orient: vertical;
 }
 .list {
+    position: absolute;
     margin-top: 30px;
+    width: 100%;
+    min-height: 100%;
     background-color: white;
 }
 
 .list-item {
     background-color: white;
+    min-height: 100%;
 }
 
 .image {
