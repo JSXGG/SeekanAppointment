@@ -1,8 +1,9 @@
-<view wx:if="{{binfo.name.length>0}}"class='servedetails'>
-    <view  class="compinfo">
+<view wx:if="{{binfo.name.length>0}}" class='appotmdetails'>
+    <view class="compinfo">
         <image class="image" src="{{binfo.icon}}"></image>
         <view class="name">{{binfo.name}}</view>
         <view class="info">公司简介：{{binfo.info}}</view>
+        <view class="address">服务热线：{{binfo.tel}}</view>
         <view class="address">公司地址：{{binfo.address}}</view>
     </view>
     <view class="viewcontent">
@@ -17,6 +18,6 @@
         <view class="content">预约时间：{{info.time}}</view>
         <view class="content">备注：{{info.note}}</view>
     </view>
-    <button class="button-content"   bindtap="callphpne">拨打电话</button>
-    <button class="button-content"  style="background-color: #ff4343" bindtap="clickonthecancle">取消预约</button>
+    <button class="button-content" bindtap="callphpne">拨打电话</button>
+    <button class="button-content" style="background-color: #ff4343;margin-bottom: 100px" bindtap="clickonthecancle">取消预约</button>
 </view>

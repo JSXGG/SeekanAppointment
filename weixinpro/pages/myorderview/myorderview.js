@@ -21,7 +21,9 @@ Page({
         // 生命周期函数--监听页面卸载
     },
     onPullDownRefresh: function () {
-        // 页面相关事件处理函数--监听用户下拉动作
+        // 生命周期函数--监听页面显示 getmyconvention
+        var userInfo = getApp().globalData.userInfo;
+        this.getmyorder(userInfo.id);
     },
     onReachBottom: function () {
         // 页面上拉触底事件的处理函数
@@ -43,6 +45,7 @@ Page({
                 uid: uid
             },
             success: function (res) {
+                wx.stopPullDownRefresh();
                 var items = res.data.data;
                 wx.hideToast();
                 if (items.length == 0) {
@@ -84,8 +87,6 @@ Page({
     clickOntheCellitem: function (e) {
         var that = this;
         var item = e.currentTarget.dataset.item;
-
-        console.log(item);
         wx.showActionSheet({
             itemList: ['接受预约', '拒绝预约', '拨打客户电话'],
             success: function (res) {
@@ -98,10 +99,10 @@ Page({
                 else if (res.tapIndex == 2) {
                     wx.makePhoneCall({
                         phoneNumber: item.tel, //此号码并非真实电话号码，仅用于测试
-                        success:function(){
+                        success: function () {
                             console.log("拨打电话成功！")
                         },
-                        fail:function(){
+                        fail: function () {
                             console.log("拨打电话失败！")
                         }
                     })

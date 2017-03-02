@@ -18,8 +18,8 @@ Page({
     //获取配置数据，上次选择的公司是什么。
     getconfig(){
         var that = this;
-        getApp().getUserInfo(function (info){
-            if (info) {
+        getApp().getUserInfo(function (info) {
+            if (!info.error) {
                 var openid = info['openid'];
                 wx.getStorage({
                     key: info['openid'],
@@ -28,16 +28,23 @@ Page({
                         that.setData({
                             currentStoreinfo: res.data
                         })
+                    },
+                    fail: function () {
+                        that.templeSelectCominfo();
                     }
                 })
             }
             else {
-                that.setData({
-                    currentStoreinfo: {name: '广州风萧萧信息科技有限公司'}
-                })
-                that.getServelist('3', '1');
+                that.templeSelectCominfo();
             }
         });
+    },
+    //默认选中的公司
+    templeSelectCominfo(){
+        this.setData({
+            currentStoreinfo: {name: '广州风萧萧信息科技有限公司'}
+        })
+        this.getServelist('3', '1');
     },
     //获取服务列表
     getServelist(uid, businessid) {

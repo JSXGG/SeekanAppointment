@@ -27,7 +27,8 @@ Page({
     },
     onPullDownRefresh: function () {
         // 页面相关事件处理函数--监听用户下拉动作
-
+        var uid = getApp().globalData.userInfo.id;
+        this.getmyconvention(uid);
     },
     onReachBottom: function () {
         // 页面上拉触底事件的处理函数
@@ -44,6 +45,7 @@ Page({
                 uid: uid,
             },
             success: function (res) {
+                wx.stopPullDownRefresh();
                 var items = res.data.data;
                 if(items.length==0){
                     that.setData({

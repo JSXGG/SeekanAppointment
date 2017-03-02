@@ -65,6 +65,13 @@
 .widget__line{
     left: 20px;
     right: 20px;
-    height: 1rpx;
+    height: 1px;
     background-color: #DFDFDF;
+}
+.showuserUnlogin {
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+    height: 300px;
+    line-height: 150px;
 }

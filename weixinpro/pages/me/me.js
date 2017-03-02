@@ -1,7 +1,8 @@
 Page({
     data: {
         items: [],
-        userInfo: {}
+        userInfo: {},
+        showuserUnlogin: true
     },
     onLoad: function (options) {
     },
@@ -12,9 +13,17 @@ Page({
         // 页面显示
         var that = this;
         getApp().getUserInfo(function (info) {
-            that.setData({
-                userInfo: info
-            })
+            if (info.error) {
+                that.setData({
+                    showuserUnlogin: true
+                })
+            }
+            else {
+                that.setData({
+                    userInfo: info,
+                    showuserUnlogin: false
+                })
+            }
         });
     },
     onHide: function () {

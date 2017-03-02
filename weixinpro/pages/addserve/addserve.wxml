@@ -13,7 +13,7 @@
     </view>
     <view class="input-content">
         <view class="input-title">开始日期</view>
-        <picker mode="date" value="{{bdate}}" start="{{start1}}" end="{{end1}}" bindchange="bindBdateChange">
+        <picker mode="date" value="{{bdate}}" start="{{b_start}}" end="{{b_end}}" bindchange="bindBdateChange">
             <view class="picker-title">当前选择: {{bdate}}
             </view>
         </picker>
@@ -27,7 +27,7 @@
     </view>
     <view class="input-content">
         <view class="input-title">结束日期</view>
-        <picker mode="date" value="{{edate}}" start="{{start2}}" end="{{end2}}" bindchange="bindEdateChange">
+        <picker mode="date" value="{{edate}}" start="{{e_start}}" end="{{e_end}}" bindchange="bindEdateChange">
             <view class="picker-title">当前选择: {{edate}}
             </view>
         </picker>

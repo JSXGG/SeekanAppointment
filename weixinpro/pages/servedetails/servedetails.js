@@ -1,13 +1,19 @@
 Page({
     data: {
         info: {},
-        compinfo:{}
+        compinfo: {}
     },
-    onLoad: function (options){
+    onLoad: function (options) {
         // 生命周期函数--监听页面加载
-        this.getserveinfo(options.serveid);
-        this.getCompanyinfo(options.businessid);
-
+        wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            duration: 20000
+        });
+        setTimeout(()=> {
+            this.getserveinfo(options.serveid);
+            this.getCompanyinfo(options.businessid);
+        }, 1000);
     },
     onReady: function () {
         // 生命周期函数--监听页面初次渲染完成
@@ -32,9 +38,10 @@ Page({
                 'serveid': serveid
             },
             success: function (res) {
-                var info = res.data.data;
-                var btime = new Date(parseInt(info.btime)*1000);
-                var etime = new Date(parseInt(info.etime)*1000);
+                wx.hideToast();
+                let info = res.data.data;
+                let btime = new Date(parseInt(info.btime) * 1000);
+                let etime = new Date(parseInt(info.etime) * 1000);
                 info.btime = btime.pattern('yyyy-MM-dd HH:mm');
                 info.etime = etime.pattern('yyyy-MM-dd HH:mm');
                 that.setData({
@@ -56,25 +63,36 @@ Page({
                 businessid: businessid
             },
             success: function (res) {
-                var data = res.data.data;
-                if (data){
+                wx.hideToast();
+                let data = res.data.data;
+                if (data) {
                     that.setData({
-                        compinfo:data
+                        compinfo: data
                     });
                 }
-                console.log(data);
             }
         })
     },
     clickontheEnter(){
-        var URL = '../addappoint/addappoint?serveid='
-            +this.data.info.serveid
-            +'&businessid='+this.data.info.businessid
-            +'&btime='+this.data.info.btime
-            +'&etime='+this.data.info.etime;
-        wx.navigateTo({
-            url: URL
-        })
+        var userInfo = getApp().globalData.userInfo;
+        if (userInfo) {
+            let URL = '../addappoint/addappoint?serveid='
+                + this.data.info.serveid
+                + '&businessid=' + this.data.info.businessid
+                + '&btime=' + this.data.info.btime
+                + '&etime=' + this.data.info.etime;
+            wx.navigateTo({
+                url: URL
+            })
+        }
+        else {
+            wx.showModal({
+                title: '无法预约',
+                content: '未能获取您的用户信息，请删除小程序重新进入，或者在授权窗口中选择允许获取您的用户信息。',
+                confirmText: '',
+                showCancel: false
+            })
+        }
     },
     onUnload: function () {
         // 生命周期函数--监听页面卸载    

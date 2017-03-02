@@ -28,14 +28,18 @@
   margin-left: 75px;
   max-width: 70%;
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .compinfo .info{
   text-align: left;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 15px;
   color: gray;
   font-size: 14px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .compinfo .address{
   text-align: left;
@@ -45,6 +49,7 @@
   color: gray;
   font-size: 14px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .viewcontent{

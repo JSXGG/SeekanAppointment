@@ -1,23 +1,26 @@
 <view class="me">
-    <view class="header">
-        <image class="image" src="{{userInfo.avatarUrl}}"></image>
-        <view class="title">{{userInfo.nickName}}</view>
-        <view class="subtitle">{{userInfo.city}}</view>
+    <view wx:if="{{showuserUnlogin == false}}">
+        <view class="header">
+            <image class="image" src="{{userInfo.avatarUrl}}"></image>
+            <view class="title">{{userInfo.nickName}}</view>
+            <view class="subtitle">{{userInfo.city}}</view>
+        </view>
+        <navigator class="widget" url="../myappointment/myappointment">
+            <view class="lefttitle">我的预约</view>
+            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <view class="widget__line"></view>
+        </navigator>
+        <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myserve/myserve">
+            <view class="lefttitle">我的服务</view>
+            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <view class="widget__line"></view>
+        </navigator>
+        <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myorderview/myorderview">
+            <view class="lefttitle">我的订单</view>
+            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <view class="widget__line"></view>
+        </navigator>
     </view>
-    <navigator class="widget" url="../myappointment/myappointment">
-        <view class="lefttitle">我的预约</view>
-        <image class="widget__arrow" src="/source/arrowright.png"></image>
-        <view class="widget__line"></view>
-    </navigator>
-    <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myserve/myserve">
-        <view class="lefttitle">我的服务</view>
-        <image class="widget__arrow" src="/source/arrowright.png"></image>
-        <view class="widget__line"></view>
-    </navigator>
-    <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myorderview/myorderview">
-        <view class="lefttitle">我的订单</view>
-        <image class="widget__arrow" src="/source/arrowright.png"></image>
-        <view class="widget__line"></view>
-    </navigator>
+    <view class="showuserUnlogin"  wx:if="{{showuserUnlogin == true}}">用户未登录或者拒绝授权，请重新授权</view>
 </view>
 <include src="../template/footer.wxml"/>

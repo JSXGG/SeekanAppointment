@@ -23,6 +23,8 @@ Page({
     },
     onPullDownRefresh: function () {
         // 页面相关事件处理函数--监听用户下拉动作
+        var userInfo = getApp().globalData.userInfo;
+        this.getCompanyinfo(userInfo.id);
     },
     onReachBottom: function () {
         // 页面上拉触底事件的处理函数
@@ -62,6 +64,7 @@ Page({
                 businessid: businessid
             },
             success: function (res) {
+                wx.stopPullDownRefresh();
                 wx.hideNavigationBarLoading();
                 var list = res.data.data.list;
                 var info = res.data.data.info;

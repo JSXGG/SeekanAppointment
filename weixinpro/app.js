@@ -1,10 +1,7 @@
 //app.js
-
-let {WeToast} = require('./component/wetoast/wetoast.js');    // 返回构造函数，变量名可自定义
 require('./component/datetools/datatools');
 import SeekanAppTools from './component/datetools/datatools'
 App({
-    WeToast,
     SeekanAppTools,
     onLaunch: function () {
         //调用API从本地缓存中获取数据
@@ -13,33 +10,51 @@ App({
     getUserInfo: function (cb) {
         var that = this;
         if (this.globalData.userInfo) {
-            typeof cb == "function" && cb(this.globalData.userInfo)
+            return cb(this.globalData.userInfo);
         }
         else {
             //调用登录接口
+
+            wx.showToast({
+                title: '加载中',
+                icon: 'loading',
+                duration: 20000
+            })
             wx.login({
                 success: function (res) {
                     var code = res.code;
-                    wx.getUserInfo({
-                        success: function (res) {
-                            var data = {
-                                code: code,
-                                encryptedData: res['encryptedData'],
-                                iv: res['iv'],
-                                appid: 'wx3eebe8ae1e4e60f7',
-                                secret: 'c18da056dc345ab5e934104bd2814e00'
+                    if (code) {
+                        wx.getUserInfo({
+                            success: function (res) {
+                                var data = {
+                                    code: code,
+                                    encryptedData: res['encryptedData'],
+                                    iv: res['iv'],
+                                    appid: 'wx3eebe8ae1e4e60f7',
+                                    secret: 'c18da056dc345ab5e934104bd2814e00'
+                                }
+                                that.setamlogin(data, cb);
+                            },
+                            fail: function (error) {
+                                wx.hideToast();
+                                if (cb) {
+                                    cb({error: error});
+                                }
                             }
-                            that.setamlogin(data);
-                            typeof cb == "function" && cb(that.globalData.userInfo)
-                        }
-                    })
+                        })
+                    }
+                }, fail: function (error) {
+                    wx.hideToast();
+                    if (cb) {
+                        cb({error: error});
+                    }
                 }
             })
         }
     },
     //登录
-    setamlogin: function (data) {
-        var weak_this = this;
+    setamlogin: function (data, cb) {
+        var that = this;
         wx.request({
             url: 'https://xggserve.com/xgg/amlogin',
             method: 'POST',
@@ -48,9 +63,19 @@ App({
             },
             data: data,
             success: function (res) {
+                wx.hideToast();
                 let usedata = res.data['data'];
                 if (usedata) {
-                    weak_this.globalData.userInfo = usedata;
+                    that.globalData.userInfo = usedata;
+                    if (cb) {
+                        return cb(usedata);
+                    }
+                }
+            },
+            fail: function (error) {
+                wx.hideToast();
+                if (cb) {
+                    cb({error: error});
                 }
             }
         })

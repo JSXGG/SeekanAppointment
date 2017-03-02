@@ -76,7 +76,7 @@ Page({
         if (this.data.firstname.length == 0) {
             this.toastErrorWithText('请输入贵姓');
         }
-        else if (this.data.phone.length != 11) {
+        else if (!getApp().SeekanAppTools.checkphone(this.data.phone)) {
             this.toastErrorWithText('请输入正确的手机号码');
         }
         else if (this.data.date.length == 0) {

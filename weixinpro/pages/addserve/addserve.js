@@ -6,16 +6,19 @@ Page({
         btime: '',
         edate: '',
         etime: '',
-        start1: '2017-02-10',
-        end1: '2017-03-10',
-        start2: '2017-02-10',
-        end2: '2017-03-10',
+        b_start: '',
+        b_end: '',
+        e_start: '',
+        e_end: '',
         options: {}
     },
     onLoad: function (options) {
-        // 生命周期函数--监听页面加载
+        // 生命周期函数--监听页面加载。
+        let date = new Date();
         this.setData({
-            options: options
+            options: options,
+            b_start:date.pattern('yyyy-MM-dd'),
+            e_start:date.pattern('yyyy-MM-dd'),
         });
         console.log(options);
         if (options.serveid) {
@@ -121,7 +124,6 @@ Page({
             this.toastErrorWithText('请输入服务结束时间');
         }
         else {
-
             var btime = this.transfTime(this.data.bdate, this.data.btime);
             var etime = this.transfTime(this.data.edate, this.data.etime);
             var data = {
