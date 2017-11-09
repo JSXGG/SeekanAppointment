@@ -20,8 +20,8 @@
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
     text-align: left;
     font-size: 16px;
 }
@@ -64,7 +64,7 @@
 .list-item .cell_line {
     left: 20px;
     height: 1px;
-    background-color: #dfdfdf;
+    background-color: #dddddd;
 }
 
 .showUnappment {
@@ -74,5 +74,22 @@
     height: 300px;
     line-height: 150px;
 }
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid #dddddd;
+    text-align: center;
+    line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+    display: inline-block;
+    width: 33.33%;
+    color: #777777;
+}
+.on{ color: #00aaff;
+    border-bottom: 5rpx solid #00aaff;}
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+    text-align: center;
+}  
 
 

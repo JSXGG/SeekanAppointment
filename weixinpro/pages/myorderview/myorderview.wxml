@@ -1,18 +1,19 @@
-<view class="myserve">
-    <view class="list-item">
-        <view wx:for="{{items}}" wx:key='item'>
-            <navigator class="widget" data-item="{{item}}" bindtap="clickOntheCellitem" url="">
-                <view class="cell-item">
-                    <view class="itemtext">服务名称：{{item.serveinfo.title}}</view>
-                    <view class="itemtext">客户姓氏：{{item.firstname}}</view>
-                    <view class="itemtext">客户电话：{{item.tel}}</view>
-                    <view class="itemtext">客户备注：{{item.note}}</view>
-                    <view class="itemtime">预约时间：{{item.time}}</view>
-                    <view class="itemstate">订单状态：{{item.state}}</view>
-                    <view class="cell_line"></view>
-                </view>
-            </navigator>
-        </view>
-    </view>
-    <view wx:if="{{showUnappment}}" class="showUnappment">当前没有用户预约您的服务</view>
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未处理</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已完成</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已拒绝</view>
 </view>
+<view class="list-item">
+    <view wx:for="{{items}}" wx:key='item'>
+        <navigator class="widget" data-item="{{item}}" bindtap="clickOntheCellitem" url="">
+            <view class="cell-item">
+                <view class="itemtext">服务名称：{{item.serveinfo.title}}</view>
+                <view class="itemtext">{{item.firstname}} 预约了{{item.time}}({{item.note}})</view>
+                <view class="itemtext">客户电话：{{item.tel}}</view>
+                <view class="itemstate">订单状态：{{item.state}}</view>
+                <view class="cell_line"></view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view wx:if="{{items.length==0}}" class="showUnappment">当前没有用户预约您的服务</view>

@@ -1,5 +1,9 @@
 Page({
     data: {
+        currentTab: 0,
+        items_1: [],
+        items_2: [],
+        items_3: [],
         items: [],
         showUnappment: false
     },
@@ -28,12 +32,39 @@ Page({
     onReachBottom: function () {
         // 页面上拉触底事件的处理函数
     },
-    getmyorder(uid){
+    /**
+     * 点击tab切换
+     */
+    swichNav: function (e) {
+        this.setData({
+            currentTab: e.target.dataset.current
+        });
+        this.reloadItems();
+    },
+    reloadItems: function () {
+        if (this.data.currentTab == '0') {
+            this.setData({
+                items: this.data.items_1
+            });
+        }
+        else if (this.data.currentTab == '1') {
+            this.setData({
+                items: this.data.items_2
+            });
+        }
+        else if (this.data.currentTab == '2') {
+            this.setData({
+                items: this.data.items_3
+            });
+        }
+
+    },
+    getmyorder(uid) {
         wx.showToast({
             title: '正在请求',
             icon: 'loading',
             duration: 10000
-        })
+        });
         var that = this;
         wx.request({
             url: 'https://xggserve.com/xgg/getmyorder',
@@ -41,9 +72,7 @@ Page({
             header: {
                 'content-type': 'application/json'
             },
-            data: {
-                uid: uid
-            },
+            data: {uid: uid},
             success: function (res) {
                 wx.stopPullDownRefresh();
                 var items = res.data.data;
@@ -59,26 +88,36 @@ Page({
                     });
                 }
                 if (items) {
+                    let items1 = [];
+                    let items2 = [];
+                    let items3 = [];
                     for (let i = 0; i < items.length; i++) {
                         let Obj = items[i];
                         Obj.time = new Date(parseInt(Obj.time) * 1000);
                         Obj.time = Obj.time.pattern('yyyy-MM-dd HH:mm')
                         if (Obj.state == 0) {
                             Obj.state = '未处理'
+                            items1.push(Obj);
                         }
                         else if (Obj.state == 1) {
                             Obj.state = '已接受'
+                            items2.push(Obj);
                         }
                         else if (Obj.state == -1) {
                             Obj.state = '已拒绝'
+                            items3.push(Obj);
                         }
                         else if (Obj.state == 2) {
                             Obj.state = '服务已删除'
                         }
                     }
                     that.setData({
-                        items: items
+                        allItems: items,
+                        items_1: items1,
+                        items_2: items2,
+                        items_3: items3
                     });
+                    that.reloadItems();
                 }
             }
         })
@@ -110,7 +149,7 @@ Page({
             }
         })
     },
-    dealmyorder(id, state){
+    dealmyorder(id, state) {
         var userInfo = getApp().globalData.userInfo;
         wx.showToast({
             title: '正在请求',
