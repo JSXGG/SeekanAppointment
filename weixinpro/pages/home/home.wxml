@@ -13,6 +13,6 @@
                 <view class="cell_line"></view>
             </view>
         </navigator>
+        <view class="showUnserve" wx:if="{{items.length==0}}"> {{currentStoreinfo.name}}暂未提供服务</view>
     </view>
-    <view wx:if="{{showUnserve}}" class="showUnserve"> {{currentStoreinfo.name}}暂未提供服务</view>
 </view>

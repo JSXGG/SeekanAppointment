@@ -3,26 +3,11 @@ Page({
         firstname: '',
         phone: '',
         remarks: '',
-        date: '',
-        time: '06:00',
+        date: new Date().pattern('yyyy-MM-dd'),
+        time: '',
         options: {}
     },
     onLoad: function (options) {
-        console.log(options);
-        let btime = options.btime;
-        let etime = options.etime;
-        let btimes = btime.split(' ');
-        let etimes = etime.split(' ');
-        //开始日期和时间
-        if (btimes.length == 2){
-            options.startdate = btimes[0];
-            options.starttime = btimes[1];
-        }
-        //结束日期跟时间。
-        if (etimes.length == 2){
-            options.enddate = etimes[0];
-            options.endtime = etimes[1];
-        }
         // 生命周期函数--监听页面加载
         this.setData({
             options: options
@@ -72,7 +57,6 @@ Page({
         })
     },
     clickontheEnter: function (e) {
-        console.log(this.data);
         if (this.data.firstname.length == 0) {
             this.toastErrorWithText('请输入贵姓');
         }
@@ -90,8 +74,9 @@ Page({
             var userInfo = getApp().globalData.userInfo;
             var time = this.transfTime(this.data.date, this.data.time);
             var data = {
+                formId: e.detail.formId,
                 serveid: this.data.options.serveid,
-                firstname:this.data.firstname,
+                firstname: this.data.firstname,
                 uid: userInfo.id,
                 time: time,
                 note: this.data.remarks,
@@ -124,13 +109,13 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
-                if (res.data.result == 1){
-                    setTimeout(()=>{
-                        that.toastSuccessWithText('预约成功');
+                if (res.data.result == 1) {
+                    that.toastSuccessWithText('预约成功');
+                    setTimeout(() => {
                         wx.navigateBack({
                             delta: 2 // 回退前 delta(默认为1) 页面
                         });
-                    }, 1000);
+                    }, 1500);
                 }
                 else {
                     that.toastSuccessWithText(res.data.error);
@@ -149,8 +134,8 @@ Page({
         wx.showModal({
             title: '提示',
             content: text,
-            showCancel:false,
-            confirmText:'知道了'
+            showCancel: false,
+            confirmText: '知道了'
         })
     },
     showLoadingWith: function (text) {

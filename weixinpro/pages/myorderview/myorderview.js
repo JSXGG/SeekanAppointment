@@ -57,7 +57,6 @@ Page({
                 items: this.data.items_3
             });
         }
-
     },
     getmyorder(uid) {
         wx.showToast({
@@ -96,15 +95,15 @@ Page({
                         Obj.time = new Date(parseInt(Obj.time) * 1000);
                         Obj.time = Obj.time.pattern('yyyy-MM-dd HH:mm')
                         if (Obj.state == 0) {
-                            Obj.state = '未处理'
+                            Obj.state = '未处理';
                             items1.push(Obj);
                         }
                         else if (Obj.state == 1) {
-                            Obj.state = '已接受'
+                            Obj.state = '已接受';
                             items2.push(Obj);
                         }
                         else if (Obj.state == -1) {
-                            Obj.state = '已拒绝'
+                            Obj.state = '已拒绝';
                             items3.push(Obj);
                         }
                         else if (Obj.state == 2) {

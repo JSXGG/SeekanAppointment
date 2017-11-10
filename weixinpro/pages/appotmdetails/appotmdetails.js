@@ -6,12 +6,10 @@ Page({
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
-
         this.getmyamdetails(options.id);
     },
     onReady: function () {
         // 生命周期函数--监听页面初次渲染完成
-
     },
     onShow: function () {
         // 生命周期函数--监听页面显示
@@ -33,7 +31,6 @@ Page({
                 'uid':uid
             },
             success: function (res) {
-                console.log(res.data);
                 var info = res.data.data.info;//预约详细信息。
                 var binfo = res.data.data.binfo;//公司信息
                 var sinfo = res.data.data.sinfo;//服务信息。
@@ -108,7 +105,6 @@ Page({
     },
     onPullDownRefresh: function () {
         // 页面相关事件处理函数--监听用户下拉动作
-
     },
     onReachBottom: function () {
         // 页面上拉触底事件的处理函数 

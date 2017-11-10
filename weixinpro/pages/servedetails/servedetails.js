@@ -10,7 +10,7 @@ Page({
             icon: 'loading',
             duration: 20000
         });
-        setTimeout(()=> {
+        setTimeout(() => {
             this.getserveinfo(options.serveid);
             this.getCompanyinfo(options.businessid);
         }, 1000);
@@ -40,10 +40,8 @@ Page({
             success: function (res) {
                 wx.hideToast();
                 let info = res.data.data;
-                let btime = new Date(parseInt(info.btime) * 1000);
-                let etime = new Date(parseInt(info.etime) * 1000);
-                info.btime = btime.pattern('yyyy-MM-dd HH:mm');
-                info.etime = etime.pattern('yyyy-MM-dd HH:mm');
+                info.btime = info.btime;
+                info.etime = info.etime;
                 that.setData({
                     info: info
                 });

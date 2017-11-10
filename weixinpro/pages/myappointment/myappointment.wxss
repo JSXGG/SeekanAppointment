@@ -60,3 +60,21 @@
     margin-top: -42px;
     margin-left: 78%;
 }
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid #dddddd;
+    text-align: center;
+    line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+    display: inline-block;
+    width: 50%;
+    color: #777777;
+}
+.on{ color: #00aaff;
+    border-bottom: 5rpx solid #00aaff;}
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+    text-align: center;
+}
+

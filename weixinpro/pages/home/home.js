@@ -75,17 +75,7 @@ Page({
                 }
                 that.setData({
                     items: listinfo
-                })
-                if (listinfo.length == 0) {
-                    that.setData({
-                        showUnserve: true
-                    });
-                }
-                else {
-                    that.setData({
-                        showUnserve: false
-                    });
-                }
+                });
                 wx.hideToast()
             }
         })

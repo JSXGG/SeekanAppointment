@@ -1,37 +1,41 @@
 <view class="appointdetails">
-  <view class="input-content">
-    <view class="input-title">姓</view>
-    <view class="input-view">
-      <input value="{{firstname}}" bindinput="bindFirstnameChange" placeholder="请输入您的贵姓" />
-    </view>
-  </view>
-  <view class="input-content">
-    <view class="input-title">手机</view>
-    <view class="input-view">
-      <input value="{{phone}}" bindinput="bindPhoneChange" type="number" placeholder="请输入您的手机号码" />
-    </view>
-  </view>
-  <view class="input-content">
-    <view class="input-title">备注(50字以内)</view>
-    <view class="textarea-view">
-      <textarea value="{{remarks}}" bindinput="bindRemarksChange" placeholder="备注" auto-height="true" maxlength="50"/>
-    </view>
-  </view>
-  <view class="input-content">
-    <view class="input-title">预约日期</view>
-    <picker mode="date" value="{{date}}" start="{{options.startdate}}" end="{{options.enddate}}" bindchange="bindDateChange">
-      <view class="picker-title">当前选择: {{date}}
-      </view>
-    </picker>
-  </view>
     <view class="input-content">
-    <view class="input-title">预约时间</view>
-    <picker mode="time" value="{{time}}"  bindchange="bindTimeChange">
-      <view class="picker-title">当前选择: {{time}}
-      </view>
-    </picker>
-  </view>
-  <button class="button-content" bindtap="clickontheEnter">
-    确定
-  </button>
+        <view class="input-title">姓</view>
+        <view class="input-view">
+            <input value="{{firstname}}" bindinput="bindFirstnameChange" placeholder="请输入您的贵姓"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">手机</view>
+        <view class="input-view">
+            <input value="{{phone}}" bindinput="bindPhoneChange" type="number" placeholder="请输入您的手机号码"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">备注(50字以内)</view>
+        <view class="textarea-view">
+            <textarea value="{{remarks}}" bindinput="bindRemarksChange" placeholder="备注" auto-height="true"
+                      maxlength="50"/>
+        </view>
+    </view>
+    <view class="input-content">
+        <view class="input-title">预约日期</view>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="picker-title">当前选择: {{date}}
+            </view>
+        </picker>
+    </view>
+    <view class="input-content">
+        <view class="input-title">预约时间</view>
+        <picker mode="time" value="{{time}}" start="{{options.btime}}" end="{{options.etime}}"
+                bindchange="bindTimeChange">
+            <view class="picker-title">当前选择: {{time}}
+            </view>
+        </picker>
+    </view>
+    <form report-submit bindsubmit='clickontheEnter'>
+        <button form-type="submit" class="button-content">
+            确定
+        </button>
+    </form>
 </view>

@@ -17,10 +17,9 @@ Page({
         let date = new Date();
         this.setData({
             options: options,
-            b_start:date.pattern('yyyy-MM-dd'),
-            e_start:date.pattern('yyyy-MM-dd'),
+            b_start:date.pattern('MM-dd'),
+            e_start:date.pattern('MM-dd'),
         });
-        console.log(options);
         if (options.serveid) {
             this.getserveinfo(options.serveid);
         }
@@ -45,15 +44,11 @@ Page({
         });
     },
     reloadserveinfo: function (data) {
-        let btime = new Date(parseInt(data.btime) * 1000);
-        let etime = new Date(parseInt(data.etime) * 1000);
         this.setData({
             title: data.title,
             content: data.content,
-            bdate: btime.pattern('yyyy-MM-dd'),
-            btime: btime.pattern('HH:mm'),
-            edate: etime.pattern('yyyy-MM-dd'),
-            etime: etime.pattern('HH:mm'),
+            btime: data.btime,
+            etime: data.etime,
         })
     },
     onReady: function () {
@@ -111,21 +106,15 @@ Page({
         else if (this.data.content.length == 0) {
             this.toastErrorWithText('请输入服务内容');
         }
-        else if (this.data.bdate.length == 0) {
-            this.toastErrorWithText('请输入服务开始日期');
-        }
         else if (this.data.btime.length == 0) {
             this.toastErrorWithText('请输入服务开始时间');
-        }
-        else if (this.data.edate.length == 0) {
-            this.toastErrorWithText('请输入服务结束日期');
         }
         else if (this.data.etime.length == 0) {
             this.toastErrorWithText('请输入服务结束时间');
         }
         else {
-            var btime = this.transfTime(this.data.bdate, this.data.btime);
-            var etime = this.transfTime(this.data.edate, this.data.etime);
+            var btime = this.data.btime;
+            var etime = this.data.etime;
             var data = {
                 'btime': btime,
                 'etime': etime,
@@ -134,7 +123,6 @@ Page({
                 'title': this.data.title,
                 'content': this.data.content
             };
-
             if (this.data.options.serveid) {
                 data['serveid'] = this.data.options.serveid;
             }

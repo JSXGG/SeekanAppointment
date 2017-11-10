@@ -1,3 +1,7 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未处理</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已处理</view>
+</view>
 <view class="appointment">
     <view class="list">
         <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}"  url="../appotmdetails/appotmdetails?id={{item.id}}">
@@ -10,5 +14,5 @@
             </view>
         </navigator>
     </view>
-    <view wx:if="{{showUnappment}}" class="showUnappment">您当前没有预约，请到首页预约您的服务</view>
+    <view wx:if="{{items.length===0}}" class="showUnappment">您当前没有预约，请到首页预约您的服务</view>
 </view>
