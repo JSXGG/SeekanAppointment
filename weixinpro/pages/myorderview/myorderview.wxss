@@ -17,11 +17,7 @@
     border-radius: 30px;
 }
 .list-item .itemtext {
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 25px;
-    line-height: 25px;
+    margin: 5px;
     text-align: left;
     font-size: 16px;
 }

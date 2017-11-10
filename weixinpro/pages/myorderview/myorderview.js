@@ -123,6 +123,9 @@ Page({
     },
     //点击进入订单详情。
     clickOntheCellitem: function (e) {
+        if (this.data.currentTab != 0) {
+            return;
+        }
         var that = this;
         var item = e.currentTarget.dataset.item;
         wx.showActionSheet({
@@ -163,7 +166,6 @@ Page({
                 'content-type': 'application/json'
             },
             data: {
-                uid: userInfo.id,
                 id: id,
                 state: state
             },
