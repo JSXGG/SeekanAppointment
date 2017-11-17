@@ -1,8 +1,8 @@
 <view class="mycompany">
     <view class="list-item" bindtap="clickontheheader">
         <view class="title">公司商标</view>
-        <image class="face" src="{{info.icon}}"></image>
-        <image class="widget__arrow" src="/source/arrowright.png"></image>
+        <image class="face" src="{{info.icon}}" model="center"></image>
+        <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
         <view class="widget__line"></view>
     </view>
     <view class="input-content">

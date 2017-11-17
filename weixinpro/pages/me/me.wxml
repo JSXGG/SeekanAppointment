@@ -1,23 +1,23 @@
 <view class="me">
     <view wx:if="{{showuserUnlogin == false}}">
         <view class="header">
-            <image class="image" src="{{userInfo.avatarUrl}}"></image>
+            <image class="image" src="{{userInfo.avatarUrl}}" model="center"></image>
             <view class="title">{{userInfo.nickName}}</view>
             <view class="subtitle">{{userInfo.city}}</view>
         </view>
         <navigator class="widget" url="../myappointment/myappointment">
             <view class="lefttitle">我的预约</view>
-            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
             <view class="widget__line"></view>
         </navigator>
         <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myserve/myserve">
             <view class="lefttitle">我的服务</view>
-            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
             <view class="widget__line"></view>
         </navigator>
         <navigator wx:if="{{userInfo.isbusiness == 1}}" class="widget" url="../myorderview/myorderview">
             <view class="lefttitle">我的订单</view>
-            <image class="widget__arrow" src="/source/arrowright.png"></image>
+            <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
             <view class="widget__line"></view>
         </navigator>
     </view>

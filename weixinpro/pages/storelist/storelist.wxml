@@ -1,9 +1,9 @@
 <view class="storelist">
     <view class="cell-item" wx:for="{{items}}" wx:key='item' bindtap="tapItem" data-item="{{item}}">
-        <image class="image" src="{{item.icon}}"></image>
+        <image class="image" src="{{item.icon}}" model="center"></image>
         <view class="title">{{item.name}}</view>
         <view class="subtitle">{{item.info}}</view>
-        <image class="widget__arrow" src="/source/arrowright.png"></image>
+        <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
         <view class="cell_line"></view>
     </view>
 </view>
