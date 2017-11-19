@@ -4,7 +4,8 @@
 </view>
 <view class="appointment">
     <view class="list">
-        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}"  url="../appotmdetails/appotmdetails?id={{item.id}}">
+        <navigator wx:for="{{items}}" wx:key='item' data-item="{{item}}"
+                   url="../appotmdetails/appotmdetails?id={{item.id}}">
             <view class="list-item">
                 <view class="name">服务名称：{{item.info.title}}</view>
                 <view class="time">订单日期：{{item.time}}</view>
@@ -12,6 +13,7 @@
                 <div class="state">{{item.state}}</div>
                 <view class="cell_line"></view>
             </view>
+
         </navigator>
     </view>
     <view wx:if="{{items.length===0}}" class="showUnappment">您当前没有预约，请到首页预约您的服务</view>

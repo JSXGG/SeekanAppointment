@@ -26,6 +26,10 @@ Page({
             }
         });
     },
+    clickOntheAboutMe: function () {
+        console.log('23123123123');
+        wx.miniProgram.navigateTo({url: '/path/to/page'})
+    },
     onHide: function () {
         // 页面隐藏
     },

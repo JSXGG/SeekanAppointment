@@ -55,6 +55,8 @@
     position: relative;
     height: 44px;
 }
+
+
 .widget__arrow{
     position: absolute;
     top: 14px;

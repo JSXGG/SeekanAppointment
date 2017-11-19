@@ -20,7 +20,12 @@
             <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
             <view class="widget__line"></view>
         </navigator>
+
+        <navigator class="widget" url="../about/about">
+            <view class="lefttitle">关于我们</view>
+            <image class="widget__arrow" src="/source/arrowright.png" model="center"></image>
+            <view class="widget__line"></view>
+        </navigator>
     </view>
-    <view class="showuserUnlogin"  wx:if="{{showuserUnlogin == true}}">用户未登录或者拒绝授权，请重新授权</view>
+    <view class="showuserUnlogin" wx:if="{{showuserUnlogin == true}}">用户未登录或者拒绝授权，请重新授权</view>
 </view>
-<include src="../template/footer.wxml"/>
